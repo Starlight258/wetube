@@ -1,0 +1,35 @@
+doctype html 
+html(lang="ko") 
+    head 
+        title #{pageTitle} | Wetube
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet" href="/static/css/styles.css")
+        script(src="https://kit.fontawesome.com/26b88d4f40.js" crossorigin="anonymous")
+
+    body
+        header 
+            h1=pageTitle 
+            nav 
+                ul 
+                    li 
+                        a(href="/") Home
+                    if loggedIn
+                        li 
+                            a(href=`/users/${loggedInUser._id}`) My Profile
+                        li
+                            a(href="/logout") Log out 
+                        li 
+                            a(href="/users/edit") Edit Profile
+                    else
+                        li 
+                            a(href="/join") Join
+                        li 
+                            a(href="/login") Login
+                    li 
+                        a(href="/search") Search
+                    li 
+                        a(href="/videos/upload") Upload Video
+        main
+            block content
+        include partials/footer.pug 
+        block scripts
