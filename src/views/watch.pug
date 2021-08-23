@@ -20,9 +20,9 @@ block content
                 span#fullScreen
                         i.fas.fa-expand
 
-    //- div
-    //-     p=video.description
-    //-     small=video.createdAt 
+    div
+        p=video.description
+        small=video.createdAt 
     div
         small Uploaded by 
             a(href=`/users/${video.owner._id}`)=video.owner.name

@@ -5,6 +5,8 @@ import {
   remove,
   logout,
   see,
+  startGithubLogin,
+  finishGithubLogin,
 } from "../controllers/userController";
 import { avatarUpload } from "../middlewares";
 
@@ -16,6 +18,7 @@ userRouter
   .get(getEdit)
   .post(avatarUpload.single("avatar"), postEdit);
 userRouter.get("/remove", remove);
+userRouter.get("/github/start", startGithubLogin);
+userRouter.get("/github/finish", finishGithubLogin);
 userRouter.get("/:id", see);
-
 export default userRouter;
