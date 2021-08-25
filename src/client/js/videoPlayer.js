@@ -48,6 +48,7 @@ const handleVolumeChange = (event) => {
   }
   volumeValue = value;
   video.volume = value;
+  console.log(video);
 };
 //시간
 const formatTime = (seconds) =>
@@ -112,12 +113,19 @@ const handleKeydown = (event) => {
     fullScreenIcon.classList = "fas fa-expand";
   }
 };
+const handleEnded = () => {
+  const { id } = videoContainer.dataset;
+  fetch(`/api/videos/${id}/view`, { method: "POST" });
+};
+
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlayClick); //클릭시 멈춤/재생
+video.addEventListener("ended", handleEnded);
+
 window.addEventListener("keydown", handleKeydown);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);

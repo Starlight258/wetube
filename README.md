@@ -9,6 +9,7 @@
 /users/logout -> Log Out
 /users/edit -> Edit MY Profile
 /users/delete -> Delete MY Profile
+/github/start, /github/finish -> Github Login
 
 /videos/:id -> See Video
 /videos/:id/edit -> Edit Video
