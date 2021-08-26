@@ -4,8 +4,8 @@ header
     nav 
         ul
             li
-                    a(href="/search")
-                        i.fas.fa-search 
+                a(href="/search")
+                    i.fas.fa-search 
             if loggedIn
                 li 
                     a(href="/videos/upload") Upload Video
@@ -16,9 +16,12 @@ header
                 li
                     a(href=`/users/${loggedInUser._id}`)
                         if !loggedInUser.avatarUrl
-                            span 😀
+                            span 😊
                         else
-                            img.header__avatar(src="/" + loggedInUser.avatarUrl)
+                            if loggedInUser.avatarUrl[0]==="h"
+                                img.header__avatar(src= loggedInUser.avatarUrl)
+                            else
+                                img.header__avatar(src= "/"+loggedInUser.avatarUrl)
             else
                 li 
                     a(href="/login") Login
