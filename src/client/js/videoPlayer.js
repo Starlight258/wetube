@@ -101,8 +101,7 @@ const handleKeydown = (event) => {
   if (window.event.keyCode === 32) {
     //스페이스바-재생/멈춤
     handlePlayClick();
-  }
-  if (window.event.keyCode === 70 || window.event.keyCode === 102) {
+  } else if (window.event.keyCode === 70 || window.event.keyCode === 102) {
     //F-풀 스크린
     videoContainer.requestFullscreen();
     fullScreenIcon.classList = "fas fa-compress";
