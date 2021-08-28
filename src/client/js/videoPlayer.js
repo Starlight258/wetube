@@ -48,7 +48,6 @@ const handleVolumeChange = (event) => {
   }
   volumeValue = value;
   video.volume = value;
-  console.log(video);
 };
 //시간
 const formatTime = (seconds) =>
